@@ -1,0 +1,2394 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/17/2016 8:29:11 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="ADMIN-PC"
+  DTS:CreatorName="ADMIN-PC\ADMIN"
+  DTS:DTSID="{2F2A6052-1447-4B66-9CCD-96443389EBA4}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package11_ForLoop_Ex1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{F488CB05-882D-4AE6-8F13-4266852E5261}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ADMIN-PC.AdventureWorksDW2014]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1285E9D9-36FB-4060-BE98-F3D67AF80249}"
+      DTS:ObjectName="ADMIN-PC.AdventureWorksDW2014">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ADMIN-PC;Initial Catalog=AdventureWorksDW2014;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ADMIN-PC.OLAP_Practice]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{60F9E458-170C-4940-BB73-06A7704582DB}"
+      DTS:ObjectName="ADMIN-PC.OLAP_Practice">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ADMIN-PC;Initial Catalog=OLAP_Practice;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{138767F1-B2AF-4352-8875-43CA01263684}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\ADMIN\Desktop\MSBI\SSIS\Files\Flatfiles\DailySalesDetails\Sales_20161023\Country1_20161023.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadedDate"
+              DTS:DTSID="{7D9AEADF-730E-4AC8-A0D5-A359483AD925}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateKey"
+              DTS:DTSID="{2A8F0F8B-4B8A-4DE3-A58D-4840528A7630}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarYear"
+              DTS:DTSID="{9640C5F2-F251-4171-90F3-0E704059429B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarSemester"
+              DTS:DTSID="{654914B0-782C-40D5-8306-7DF55914521C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarQuarter"
+              DTS:DTSID="{C73C1766-8645-453C-8012-0D8EC3726DE5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MonthNumberOfYear"
+              DTS:DTSID="{5176A68E-20F2-40B1-9EF7-D48E17BAFFE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishMonthName"
+              DTS:DTSID="{2C4F2900-E7BF-4C49-A012-094C5B309981}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FullDateAlternateKey"
+              DTS:DTSID="{5E0D0A65-58CB-4102-8F54-D95F260DD072}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductKey"
+              DTS:DTSID="{AFB01948-1AA5-46DA-8920-030A72E62546}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{CB458FEF-29B3-429F-8C03-22BA0CBE795E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishDescription"
+              DTS:DTSID="{E1E92B78-5A5E-431D-84BC-0A27CD08A569}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{C27E9A6C-085C-45C3-BDCC-40A3435AC308}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishCountryRegionName"
+              DTS:DTSID="{EF75500A-7160-4AB4-9E2B-1A8DAD8C7A3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StateProvinceName"
+              DTS:DTSID="{E35CFCB3-3208-4865-8179-079D9E8B3590}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{B590E7F8-70C0-4B57-9304-203CF41498C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerKey"
+              DTS:DTSID="{6CE26032-ED75-4167-9913-DC29270B73B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{165EE23A-D998-4DB7-921B-343A8F84C8D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{7A67E100-0374-4CBF-A4EB-42EEA79646DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MiddleName"
+              DTS:DTSID="{0C19EE46-27D0-4356-9485-F2EEC232FA53}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{0E6C5350-67B6-4919-94B1-027EE59DBE9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{C18171FC-B587-41D4-B631-F3EF0F31C468}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C__x007E__x007C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesAmount"
+              DTS:DTSID="{92B6006D-34B4-49B0-9FE8-A4CF8C3E36CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TaxAmt"
+              DTS:DTSID="{9450F0BF-FD94-4215-84D8-5CB2449749B1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1827AED5-F983-4EA0-9371-A1CB0AA9F480}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Count">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{488EBA7B-7732-4CD7-A357-D10B6DEA6B26}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Country&quot;+ (DT_WSTR, 10) @[User::Count]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentCountry">
+      <DTS:VariableValue
+        DTS:DataType="8">Country1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B08DCCA1-CC59-49CD-9532-2B2DFB3CB610}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\&quot;+ @[User::CurrentCountry]+&quot;_&quot;+ @[User::TimeStamp]+&quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentCountryFile">
+      <DTS:VariableValue
+        DTS:DataType="8">\Country1_20161023.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2DA310DB-D19B-48A2-BB31-50FEB0E74009}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;[&quot;+ @[User::CurrentCountry]+&quot;]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationTable">
+      <DTS:VariableValue
+        DTS:DataType="8">[Country1]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B148C84B-204E-421B-8F43-2CD963EE8CD3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RoorFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ADMIN\Desktop\MSBI\SSIS\Files\Flatfiles\DailySalesDetails</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{01119082-FEC9-4227-8ECF-6C87E0DED663}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT * FROM SalesVW2 WHERE EnglishCountryRegionName = '&quot;+ @[User::CurrentCountry]+&quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT * FROM SalesVW2 WHERE EnglishCountryRegionName = 'Country1'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E38221D8-3CC3-456A-9924-14848B1274FE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SubjectArea">
+      <DTS:VariableValue
+        DTS:DataType="8">Sales</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{277C2E54-8F73-4D61-B9C5-1D98F7A6CB8D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\&quot;+@[User::SubjectArea]+&quot;_&quot;+@[User::TimeStamp]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SubjectAreaFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\Sales_20161023</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{401E8620-9F9C-4BA6-AB7D-9658675E4AC6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="REPLACE(SUBSTRING((DT_WSTR, 50) GETDATE(),1,10),&quot;-&quot;,&quot;&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TimeStamp">
+      <DTS:VariableValue
+        DTS:DataType="8">20161023</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@Count  = @Count + 1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{4230F630-128C-4E5E-B12D-43D34E8865CA}"
+      DTS:EvalExpression="@Count  &lt;= 6"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@Count = 1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\ETL Task 2"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C95E17D6-A9DE-4BFF-B4DE-C7BCDCA69884}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL Task 2"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\For Loop Container\ETL Task 2\Flat File Source"
+                  componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\ETL Task 2\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LoadedDate]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LoadedDate]"
+                          name="LoadedDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]"
+                          name="DateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarYear]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarYear]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarYear]"
+                          name="CalendarYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarSemester]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarSemester]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarSemester]"
+                          name="CalendarSemester"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarQuarter]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarQuarter]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarQuarter]"
+                          name="CalendarQuarter"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MonthNumberOfYear]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MonthNumberOfYear]"
+                          name="MonthNumberOfYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishMonthName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishMonthName]"
+                          length="10"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishMonthName]"
+                          name="EnglishMonthName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FullDateAlternateKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FullDateAlternateKey]"
+                          name="FullDateAlternateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishProductName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishProductName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishProductName]"
+                          name="EnglishProductName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishDescription]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishDescription]"
+                          length="400"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishDescription]"
+                          name="EnglishDescription"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                          name="GeographyKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishCountryRegionName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishCountryRegionName]"
+                          name="EnglishCountryRegionName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateProvinceName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvinceName]"
+                          name="StateProvinceName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                          length="30"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                          name="CustomerKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]"
+                          name="MiddleName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          length="1"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                          name="EmailAddress"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesAmount]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TaxAmt]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[TaxAmt]"
+                          name="TaxAmt"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadedDate" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarYear]"
+                          dataType="i2"
+                          name="CalendarYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarSemester]"
+                          dataType="ui1"
+                          name="CalendarSemester" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarQuarter]"
+                          dataType="ui1"
+                          name="CalendarQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          name="MonthNumberOfYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishMonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="EnglishMonthName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          name="FullDateAlternateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishProductName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishProductName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishDescription]"
+                          dataType="wstr"
+                          length="400"
+                          name="EnglishDescription" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                          dataType="i4"
+                          name="GeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishCountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\ETL Task 2\OLE DB Destination"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::DestinationTable</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ADMIN-PC.OLAP_Practice]"
+                      connectionManagerRefId="Package.ConnectionManagers[ADMIN-PC.OLAP_Practice]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadedDate"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadedDate]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LoadedDate]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                          cachedDataType="i4"
+                          cachedName="DateKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CalendarYear]"
+                          cachedDataType="i2"
+                          cachedName="CalendarYear"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarYear]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarYear]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CalendarSemester]"
+                          cachedDataType="ui1"
+                          cachedName="CalendarSemester"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarSemester]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarSemester]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CalendarQuarter]"
+                          cachedDataType="ui1"
+                          cachedName="CalendarQuarter"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarQuarter]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarQuarter]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthNumberOfYear]"
+                          cachedDataType="ui1"
+                          cachedName="MonthNumberOfYear"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MonthNumberOfYear]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EnglishMonthName]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="EnglishMonthName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishMonthName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishMonthName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FullDateAlternateKey]"
+                          cachedDataType="dbDate"
+                          cachedName="FullDateAlternateKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullDateAlternateKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FullDateAlternateKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                          cachedDataType="i4"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EnglishProductName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EnglishProductName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishProductName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishProductName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EnglishDescription]"
+                          cachedDataType="wstr"
+                          cachedLength="400"
+                          cachedName="EnglishDescription"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishDescription]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishDescription]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeographyKey]"
+                          cachedDataType="i4"
+                          cachedName="GeographyKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EnglishCountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EnglishCountryRegionName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishCountryRegionName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishCountryRegionName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvinceName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[City]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                          cachedDataType="i4"
+                          cachedName="CustomerKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmailAddress]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EmailAddress"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesAmount]"
+                          cachedDataType="cy"
+                          cachedName="SalesAmount"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                          cachedDataType="cy"
+                          cachedName="TaxAmt"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          lineageId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output].Columns[TaxAmt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadedDate" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarYear]"
+                          dataType="i2"
+                          name="CalendarYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarSemester]"
+                          dataType="ui1"
+                          name="CalendarSemester" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarQuarter]"
+                          dataType="ui1"
+                          name="CalendarQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          name="MonthNumberOfYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishMonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="EnglishMonthName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          name="FullDateAlternateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishProductName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishProductName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishDescription]"
+                          dataType="wstr"
+                          length="400"
+                          name="EnglishDescription" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                          dataType="i4"
+                          name="GeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishCountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\For Loop Container\ETL Task 2.Paths[Flat File Source Output]"
+                  endId="Package\For Loop Container\ETL Task 2\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\For Loop Container\ETL Task 2\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\ETL Task1"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B07A44D3-BA44-4377-88D5-C433976B2FF3}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL Task1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\For Loop Container\ETL Task1\Flat File Destination"
+                  componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\ETL Task1\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[LoadedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadedDate"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadedDate]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadedDate]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[DateKey]"
+                          cachedDataType="i4"
+                          cachedName="DateKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[CalendarYear]"
+                          cachedDataType="i2"
+                          cachedName="CalendarYear"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarYear]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarYear]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[CalendarSemester]"
+                          cachedDataType="ui1"
+                          cachedName="CalendarSemester"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarSemester]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarSemester]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[CalendarQuarter]"
+                          cachedDataType="ui1"
+                          cachedName="CalendarQuarter"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarQuarter]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarQuarter]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[MonthNumberOfYear]"
+                          cachedDataType="ui1"
+                          cachedName="MonthNumberOfYear"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MonthNumberOfYear]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[EnglishMonthName]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="EnglishMonthName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishMonthName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishMonthName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[FullDateAlternateKey]"
+                          cachedDataType="dbDate"
+                          cachedName="FullDateAlternateKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FullDateAlternateKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[ProductKey]"
+                          cachedDataType="i4"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[EnglishProductName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EnglishProductName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishProductName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishProductName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[EnglishDescription]"
+                          cachedDataType="wstr"
+                          cachedLength="400"
+                          cachedName="EnglishDescription"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishDescription]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishDescription]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[GeographyKey]"
+                          cachedDataType="i4"
+                          cachedName="GeographyKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[GeographyKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[EnglishCountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EnglishCountryRegionName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishCountryRegionName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishCountryRegionName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[City]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[CustomerKey]"
+                          cachedDataType="i4"
+                          cachedName="CustomerKey"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CustomerKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MiddleName]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[EmailAddress]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="EmailAddress"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesAmount]"
+                          cachedDataType="cy"
+                          cachedName="SalesAmount"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesAmount]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].Columns[TaxAmt]"
+                          cachedDataType="cy"
+                          cachedName="TaxAmt"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TaxAmt]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadedDate" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarYear]"
+                          dataType="i2"
+                          name="CalendarYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarSemester]"
+                          dataType="ui1"
+                          name="CalendarSemester" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CalendarQuarter]"
+                          dataType="ui1"
+                          name="CalendarQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          name="MonthNumberOfYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishMonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="EnglishMonthName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          name="FullDateAlternateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishProductName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishProductName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishDescription]"
+                          dataType="wstr"
+                          length="400"
+                          name="EnglishDescription" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                          dataType="i4"
+                          name="GeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishCountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\ETL Task1\OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SourceQuery</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\ETL Task1\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ADMIN-PC.AdventureWorksDW2014]"
+                      connectionManagerRefId="Package.ConnectionManagers[ADMIN-PC.AdventureWorksDW2014]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadedDate]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadedDate]"
+                          name="LoadedDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          name="DateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarYear]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarYear]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarYear]"
+                          name="CalendarYear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarSemester]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarSemester]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarSemester]"
+                          name="CalendarSemester"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarQuarter]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarQuarter]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalendarQuarter]"
+                          name="CalendarQuarter"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                          name="MonthNumberOfYear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishMonthName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishMonthName]"
+                          length="10"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishMonthName]"
+                          name="EnglishMonthName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FullDateAlternateKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]"
+                          name="FullDateAlternateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                          name="ProductKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishProductName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishProductName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishProductName]"
+                          name="EnglishProductName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishDescription]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishDescription]"
+                          length="400"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishDescription]"
+                          name="EnglishDescription"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[GeographyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GeographyKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[GeographyKey]"
+                          name="GeographyKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishCountryRegionName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishCountryRegionName]"
+                          name="EnglishCountryRegionName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]"
+                          name="StateProvinceName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                          length="30"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                          name="CustomerKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                          name="MiddleName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          length="1"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                          name="EmailAddress"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                          name="SalesAmount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          name="TaxAmt"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadedDate" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarYear]"
+                          dataType="i2"
+                          name="CalendarYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarSemester]"
+                          dataType="ui1"
+                          name="CalendarSemester" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalendarQuarter]"
+                          dataType="ui1"
+                          name="CalendarQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          name="MonthNumberOfYear" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishMonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="EnglishMonthName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          name="FullDateAlternateKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishProductName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishProductName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishDescription]"
+                          dataType="wstr"
+                          length="400"
+                          name="EnglishDescription" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GeographyKey]"
+                          dataType="i4"
+                          name="GeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishCountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                          dataType="cy"
+                          name="SalesAmount" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadedDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadedDate]"
+                          name="LoadedDate" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          name="DateKey" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarYear]"
+                          dataType="i2"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarYear]"
+                          name="CalendarYear" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarSemester]"
+                          dataType="ui1"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarSemester]"
+                          name="CalendarSemester" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarQuarter]"
+                          dataType="ui1"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalendarQuarter]"
+                          name="CalendarQuarter" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                          dataType="ui1"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                          name="MonthNumberOfYear" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishMonthName]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishMonthName]"
+                          name="EnglishMonthName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FullDateAlternateKey]"
+                          dataType="dbDate"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FullDateAlternateKey]"
+                          name="FullDateAlternateKey" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                          name="ProductKey" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishProductName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishProductName]"
+                          name="EnglishProductName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishDescription]"
+                          dataType="wstr"
+                          length="400"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishDescription]"
+                          name="EnglishDescription" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GeographyKey]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GeographyKey]"
+                          name="GeographyKey" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishCountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishCountryRegionName]"
+                          name="EnglishCountryRegionName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceName]"
+                          name="StateProvinceName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                          name="City" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                          name="CustomerKey" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                          name="MiddleName" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                          name="EmailAddress" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          dataType="cy"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                          name="SalesAmount" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          name="TaxAmt" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\For Loop Container\ETL Task1.Paths[OLE DB Source Output]"
+                  endId="Package\For Loop Container\ETL Task1\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\For Loop Container\ETL Task1\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD2A00B1-79B0-4145-9948-E1371EC5AA08}"
+          DTS:From="Package\For Loop Container\ETL Task1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\For Loop Container\ETL Task 2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\For Loop Container\ETL Task 2"
+          TopLeft="199,87" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\For Loop Container\ETL Task1"
+          TopLeft="195,4" />
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="262.75,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="474,184"
+          Size="474,227"
+          Id="Package\For Loop Container"
+          TopLeft="113,22" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\For Loop Container\ETL Task 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\For Loop Container\ETL Task 2\OLE DB Destination"
+          TopLeft="335,139" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\For Loop Container\ETL Task 2\Flat File Source"
+          TopLeft="347,32" />
+        <EdgeLayout
+          Id="Package\For Loop Container\ETL Task 2.Paths[Flat File Source Output]"
+          TopLeft="422.5,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\ETL Task 2\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\For Loop Container\ETL Task1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\For Loop Container\ETL Task1\OLE DB Source"
+          TopLeft="307,35" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\For Loop Container\ETL Task1\Flat File Destination"
+          TopLeft="297,135" />
+        <EdgeLayout
+          Id="Package\For Loop Container\ETL Task1.Paths[OLE DB Source Output]"
+          TopLeft="383.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\ETL Task1\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

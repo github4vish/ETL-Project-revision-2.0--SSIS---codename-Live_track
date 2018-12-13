@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS_New", "SSIS_New\SSIS_New.dtproj", "{9619A698-A2B5-4A32-BE28-4242E21B3F43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9619A698-A2B5-4A32-BE28-4242E21B3F43}.Development|Default.ActiveCfg = Development
+		{9619A698-A2B5-4A32-BE28-4242E21B3F43}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

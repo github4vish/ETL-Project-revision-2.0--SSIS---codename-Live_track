@@ -1,0 +1,111 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2016 8:23:20 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="ADMIN-PC"
+  DTS:CreatorName="ADMIN-PC\ADMIN"
+  DTS:DTSID="{E207E056-251C-409C-AC8C-953FF8549A76}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package19_SSISOtherTasks"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{04E8C368-550D-49ED-B85B-0D6F5BD5F91A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ADMIN-PC]"
+      DTS:CreationName="SMOServer"
+      DTS:DTSID="{9E74F0A3-4C43-4B10-91C5-E30A26B3763E}"
+      DTS:ObjectName="ADMIN-PC">
+      <DTS:ObjectData>
+        <SMOServerConnectionManager
+          ConnectionString="SqlServerName=ADMIN-PC;UseWindowsAuthentication=True;UserName=;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Jobs Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.TransferJobsTask.TransferJobsTask, Microsoft.SqlServer.TransferJobsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Transfer Jobs Task"
+      DTS:DTSID="{9A82C546-4063-4AB0-A14C-1E29A95E8B20}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.TransferJobsTask.TransferJobsTask, Microsoft.SqlServer.TransferJobsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Jobs Task"
+      DTS:TaskContact="Transfer Jobs Task; Microsoft Corporation; SQL Server 2012; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Logins Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.TransferLoginsTask.TransferLoginsTask, Microsoft.SqlServer.TransferLoginsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Transfer Logins Task"
+      DTS:DTSID="{E7DD435A-450D-403F-AE3F-2FF58220772D}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.TransferLoginsTask.TransferLoginsTask, Microsoft.SqlServer.TransferLoginsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Logins Task"
+      DTS:TaskContact="Transfer Error Messages Task; Microsoft Corporation; SQL Server 2012; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer SQL Server Objects Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.TransferSqlServerObjectsTask.TransferSqlServerObjectsTask, Microsoft.SqlServer.TransferSqlServerObjectsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Transfer SQL Server Objects Task"
+      DTS:DTSID="{3C74C8B0-D265-4B40-BC47-12C6F1339E08}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.TransferSqlServerObjectsTask.TransferSqlServerObjectsTask, Microsoft.SqlServer.TransferSqlServerObjectsTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer SQL Server Objects Task"
+      DTS:TaskContact="Transfer Objects Task; Microsoft Corporation; SQL Server 2012; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <TransferSqlServerObjectsTaskData
+          SourceConnection="{9E74F0A3-4C43-4B10-91C5-E30A26B3763E}"
+          DestinationConnection="{9E74F0A3-4C43-4B10-91C5-E30A26B3763E}"
+          SourceDatabase="OLTP_Practice"
+          DestinationDatabase="OLAP_Practice"
+          CopyAllObjects="True"
+          DropObjectsFirst="True"
+          CopyData="True"
+          CopyIndexes="True"
+          CopyTriggers="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Transfer Logins Task"
+          TopLeft="206,35" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Transfer SQL Server Objects Task"
+          TopLeft="198,101" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Transfer Jobs Task"
+          TopLeft="220,168" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
